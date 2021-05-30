@@ -1,7 +1,7 @@
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const generateTeam = require('./dist/generateTeam.html')
+const team = require('./src/template.js')
 const fs = require('fs');
 const path = require('path')
 const inquirer = require('inquirer')
@@ -13,13 +13,8 @@ const render = require("./src/template")
 const teamArray = []
 
 
-const questions = () => {
+function initApp(){
     inquirer.prompt([
-        {
-            type: 'confirm',
-            name: 'start',
-            message: 'Hello fellow coder! Ready to put together your team profile??',
-        },
         {
             type: 'list',
             message: 'Select an employee role from the list below:',
@@ -44,6 +39,7 @@ const questions = () => {
             } else (employeeInfo.role === '')
         });
 };
+
 
 
     function addEngineer() {
@@ -71,7 +67,8 @@ const questions = () => {
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             teamArray.push(engineer);
-            createTeam();
+            // createTeam();
+            team();
         });
     }
 
@@ -96,7 +93,8 @@ const questions = () => {
             ]).then(answers => {
                 const manager = new Manager(answers.managerName, answers.managerEmail, answers.officeNumber);
                 teamArray.push(manager);
-                createTeam();
+                // createTeam();
+                team();
             });
         }
 
@@ -120,24 +118,19 @@ const questions = () => {
                 ]).then(answers => {
                     const intern = new Intern(answers.internName, answers.internEmail, answers.internSchool);
                     teamArray.push(intern);
-                    createTeam();
+                    // createTeam();
+                    team();
                 });
             }
 
         function buildTeam() {
-            // Create the output directory if the output path doesn't exist
             fs.writeFileSync(outputFile, render(teamArray), "utf-8");
         }
-    
-questions()
-    .then(rmData => {
-        (fs.writeFile('README.md', generateTeam.html(rmData), err => {
-            if (err) throw err;
 
-            console.log('Portfolio complete! Check out README.md to see the output!');
-        })
-        )
-    })
+    
 
 initApp();
 buildTeam();
+
+
+
