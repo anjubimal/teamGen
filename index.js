@@ -112,6 +112,11 @@ function createTeam() {
                 },
                 {
                     type: "input",
+                    name: "managerId",
+                    message: "What is your manager's id?",
+                },
+                {
+                    type: "input",
                     name: "managerEmail",
                     message: "What is your manager's email?",
                 },
@@ -121,7 +126,7 @@ function createTeam() {
                     message: "What is your manager's office number?",
                 }
             ]).then(answers => {
-                const manager = new Manager(answers.managerName, answers.managerEmail, answers.officeNumber);
+                const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
                 teamArray.push(manager);
                 createTeam();
                 // generateTeam();
@@ -137,6 +142,11 @@ function createTeam() {
                     },
                     {
                         type: "input",
+                        name: "internId",
+                        message: "What is your interns's id?",
+                    },
+                    {
+                        type: "input",
                         name: "internEmail",
                         message: "What is your intern's email?",
                     },
@@ -146,7 +156,7 @@ function createTeam() {
                         message: "What is your intern's school?",
                     }
                 ]).then(answers => {
-                    const intern = new Intern(answers.internName, answers.internEmail, answers.internSchool);
+                    const intern = new Intern(answers.internName,answers.internId, answers.internEmail, answers.internSchool);
                     teamArray.push(intern);
                     createTeam();
                     // generateTeam();
