@@ -1,8 +1,8 @@
 
   ![badmath](https://img.shields.io/apm/l/vim-mode)
   #  Team Profile Generator
-  ## Description 
-  * 
+  ## Description
+  * Team profile generator that can add information about manager, engineer or intern and generate corresponding HTML page.
   ## Table of Contents
   * [Description](#Description)
   * [Installation](#Installation)
@@ -13,8 +13,6 @@
   * [Questions](#Questions)
   ## Installation Guide 
   * run `npm init` and `npm install` in terminal. run `npm install inquirer` and `npm install --save-dev jest`. 
-  ## Description
-  * Team profile generator that can add information about manager, engineer or intern and generate corresponding HTML page.
   ## License
   * https://opensource.org/licenses/MIT
   ## Contributers 
