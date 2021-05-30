@@ -8,15 +8,14 @@
   * [Installation](#Installation)
   * [Usage](#Usage)
   * [Liscense](#License)
-  * [Contributers](#Contributers)
   * [Tests](#Tests)
   * [Questions](#Questions)
   ## Installation Guide 
   * run `npm init` and `npm install` in terminal. run `npm install inquirer` and `npm install --save-dev jest`. 
+  ## Usage
+  * ![video](https://drive.google.com/file/d/1tskVkTMrk2B-szAJyLDm0vlYZaJuxizc/view?usp=sharing)
   ## License
   * https://opensource.org/licenses/MIT
-  ## Contributers 
-  * no contributors
   ## Tests 
   * code can be tested by running command `npm run test`
   ## Questions
