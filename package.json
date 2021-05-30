@@ -1,0 +1,26 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjubimal/teamGen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anjubimal/teamGen/issues"
+  },
+  "homepage": "https://github.com/anjubimal/teamGen#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.3"
+  },
+  "description": ""
+}
