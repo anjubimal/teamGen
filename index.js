@@ -1,7 +1,6 @@
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const team = require('./src/template.js')
 const fs = require('fs');
 const path = require('path')
 const inquirer = require('inquirer')
@@ -13,7 +12,7 @@ const render = require("./src/template")
 const teamArray = []
 
 
-function initApp(){
+function runApp(){
     inquirer.prompt([
         {
             type: 'list',
@@ -25,11 +24,11 @@ function initApp(){
     ])
         .then((employeeInfo) => {
             if (employeeInfo.role === 'Manager') {
-                console.log('Add Manager information');
+                console.log('Add Manager');
                 addManager()
 
             } else if (employeeInfo.role === 'Engineer') {
-                console.log('Add Engineer information');
+                console.log('Add Engineer');
                 addEngineer()
 
             } else if (employeeInfo.role === 'Intern ') {
@@ -37,6 +36,37 @@ function initApp(){
                 addIntern()
 
             } else (employeeInfo.role === '')
+        });
+};
+
+function createTeam() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            message: 'Select an employee role from the list below:',
+            choices: ['Manager', 'Engineer', 'Intern', 'Finished'],
+            name: 'role'
+        },
+
+    ])
+        .then((employeeInfo) => {
+            if (employeeInfo.role === 'Manager') {
+                console.log('Add Manager');
+                addManager()
+
+            } else if (employeeInfo.role === 'Engineer') {
+                console.log('Add Engineer');
+                addEngineer()
+
+            } else if (employeeInfo.role === 'Intern') {
+                console.log('Add Intern');
+                addIntern()
+
+            } else {
+                console.log('Checkout generateTeam.html folder for profile')
+                fs.writeFileSync(outputFile, render(teamArray), "utf-8");
+            
+            }
         });
 };
 
@@ -67,8 +97,8 @@ function initApp(){
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             teamArray.push(engineer);
-            // createTeam();
-            team();
+            createTeam();
+            // generateTeam();
         });
     }
 
@@ -93,8 +123,8 @@ function initApp(){
             ]).then(answers => {
                 const manager = new Manager(answers.managerName, answers.managerEmail, answers.officeNumber);
                 teamArray.push(manager);
-                // createTeam();
-                team();
+                createTeam();
+                // generateTeam();
             });
         }
 
@@ -118,19 +148,13 @@ function initApp(){
                 ]).then(answers => {
                     const intern = new Intern(answers.internName, answers.internEmail, answers.internSchool);
                     teamArray.push(intern);
-                    // createTeam();
-                    team();
+                    createTeam();
+                    // generateTeam();
                 });
             }
 
-        function buildTeam() {
-            fs.writeFileSync(outputFile, render(teamArray), "utf-8");
-        }
-
-    
-
-initApp();
-buildTeam();
 
 
 
+
+runApp()
