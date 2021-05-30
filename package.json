@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/anjubimal/teamGen#readme",
   "dependencies": {
+    "inquirer": "^8.1.0",
     "jest": "^27.0.3"
   }
 }
